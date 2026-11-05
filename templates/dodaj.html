@@ -2,3 +2,30 @@
 
 {% block tytul %}Dodaj książkę{% endblock %}
 
+{% block tresc %}
+    <h1>Dodaj nową książkę</h1>
+    <form method="post" action="{{ url_for('dodaj') }}">
+        <div>
+            <label for="tytul">Tytuł:</label><br>
+            <input type="text" id="tytul" name="tytul" required>
+        </div>
+        <br>
+        <div>
+            <label for="autor">Autor:</label><br>
+            <input type="text" id="autor" name="autor" required>
+        </div>
+        <br>
+        <div>
+            <label for="rokwydania">Rok wydania:</label><br>
+            <input type="number" id="rokwydania" name="rokwydania" required>
+        </div>
+        <br>
+        <div>
+            <label>
+                <input type="checkbox" name="dostepna" checked> Książka dostępna
+            </label>
+        </div>
+        <br>
+        <button type="submit">Dodaj pozycję</button>
+    </form>
+{% endblock %}
