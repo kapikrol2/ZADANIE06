@@ -2,3 +2,20 @@
 
 {% block tytul %}Wyniki wyszukiwania{% endblock %}
 
+{% block tresc %}
+    <h1>Wyniki wyszukiwania</h1>
+    <p>Fraza: <em>"{{ q }}"</em></p>
+
+    {% if wyniki %}
+        <p>Znaleziono elementów: <strong>{{ wyniki|length }}</strong></p>
+        <ul>
+            {% for k in wyniki %}
+                <li>
+                    <a href="{{ url_for('szczegoly', id=k.id) }}">{{ k.tytul }}</a> – {{ k.autor }} ({{ k.rokwydania }})
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nie znaleziono żądanych elementów.</p>
+    {% endif %}
+{% endblock %}
