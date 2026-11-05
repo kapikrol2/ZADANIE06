@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    margin-right: 0.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #0066cc;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+td, th {
+    border: 1px solid #ccc;
+    padding: 0.5rem 0.8rem;
+    text-align: left;
+}
+
+/* Wyróżnienie nieaktywnych / niedostępnych elementów (Zadanie 2) */
+tr.niedostepny {
+    background-color: #ffe6e6;
+}
+
+.status-brak {
+    color: #cc0000;
+}
+
+.status-ok {
+    color: #008000;
+}
