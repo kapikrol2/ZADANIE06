@@ -2,3 +2,35 @@
 
 {% block tytul %}Lista Książek{% endblock %}
 
+{% block tresc %}
+    <h1>Lista Książek</h1>
+
+    {% if ksiazki %}
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tytuł</th>
+                    <th>Autor</th>
+                    <th>Rok wydania</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for k in ksiazki %}
+                <tr class="{% if not k.dostepna %}niedostepny{% endif %}">
+                    <td>{{ loop.index }}</td>
+                    <td><a href="{{ url_for('szczegoly', id=k.id) }}">{{ k.tytul }}</a></td>
+                    <td>{{ k.autor }}</td>
+                    <td>{{ k.rokwydania }}</td>
+                    <td>
+                        {% if k.dostepna %}
+                            <span class="status-ok">Dostępna</span>
+                        {% else %}
+                            <strong class="status-brak">Wypożyczona</strong>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
